@@ -1,4 +1,4 @@
-import { component$, useClientEffect$, useStore } from '@builder.io/qwik';
+import { component$, useTask$, useStore } from '@builder.io/qwik';
 import { watch } from 'valtio/utils';
 import { store, Todo, toggle, remove } from '~/store';
 
@@ -7,7 +7,7 @@ export default component$(() => {
     todos: [],
   });
 
-  useClientEffect$(
+  useTask$(
     () => {
       watch((get) => {
         state.todos = [...get(store).todos];
